@@ -131,7 +131,7 @@ def write_json(sorted_data,text,outputFile,jsInputFilePath,jsInputFile,outputJsF
 
         print('#########################################################################################')
         print('Gehe zu:')
-        print('http://10.16.8.217:3000/dashboard/script/my_jsConfigFile.js?orgId=1')
+        print('http://localhost:3000/dashboard/script/my_jsConfigFile.js?orgId=1')
         print('dann auf "Settings" (ganz oben das Zahnrad)')
         print('und speichere dein erzeugtes Dashboard unter einem anderen Namen mittels "Save as"')
 
