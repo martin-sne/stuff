@@ -10,7 +10,7 @@ from influxdb import InfluxDBClient
 def usage():
     print('###########################################################')
     print('#')
-    print('e.g.: ' + sys.argv[0] + ' b-germ-rt-bpop-1' + ' ifAlias')
+    print('e.g.: ' + sys.argv[0] + ' device' + ' ifAlias')
     print('#')
     print('###########################################################')
     sys.exit(1)
@@ -51,7 +51,7 @@ def sort_data(points,device,regexIfalias):
         if re.match(r'.*ifAlias.*', str(item.values())) and re.match(r'.*hostname.*', str(item.values())):
             match =  re.match( r'.*hostname=(.*),ifAlias=(.*),ifDescr=(.*).*\'\]', str(item.values()))
 
-            hostname_new =  re.sub('.technik.kabel-deutschland.de', '',match.group(1))
+            hostname_new =  re.sub('.test.de', '',match.group(1))
             hostname = match.group(1)
 
             ifAlias = re.sub('\\\\', '', match.group(2))
@@ -83,7 +83,7 @@ def write_json(sorted_data,text,outputFile,jsInputFilePath,jsInputFile,outputJsF
     for k,v in sorted (sorted_data.items()):
         id += 1
         #print(k,v) 
-        hostname_new =  re.sub('.technik.kabel-deutschland.de', '',v[1])
+        hostname_new =  re.sub('.test.de', '',v[1])
         panel_title = hostname_new  +  " - " + k + " - " + v[2]
         new_text = text.replace('<PANEL_TITLE>', v[0])
         new_text = new_text.replace('<DESCRIPTION>', v[0])
